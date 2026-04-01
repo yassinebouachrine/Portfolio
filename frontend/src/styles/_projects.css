@@ -1,0 +1,44 @@
+.project-filters { display:flex; justify-content:center; gap:10px; margin-bottom:24px; }
+.filter-btn {
+  padding:7px 18px; border-radius:20px;
+  border:1px solid var(--border); background:transparent;
+  color:var(--text2); font-family:var(--sans);
+  font-size:0.82rem; cursor:pointer; transition:all 0.3s;
+}
+.filter-btn:hover, .filter-btn.active {
+  background:rgba(167,139,250,0.12);
+  border-color:var(--accent); color:var(--accent);
+}
+
+.projects-grid { grid-template-columns: repeat(3,1fr); }
+
+.proj-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:14px; }
+.proj-icon {
+  width:44px; height:44px; border-radius:var(--r-md);
+  background:linear-gradient(135deg,rgba(167,139,250,0.2),rgba(99,102,241,0.2));
+  display:flex; align-items:center; justify-content:center;
+  color:var(--accent); font-size:1.2rem;
+}
+.proj-top a { color:var(--text3); font-size:1.1rem; transition:color 0.3s; }
+.proj-top a:hover { color:var(--accent); }
+
+.project-card h3 { font-size:1.05rem; font-weight:700; margin-bottom:6px; }
+.proj-badge {
+  display:inline-block; font-size:0.65rem;
+  padding:3px 9px; border-radius:20px;
+  margin-bottom:10px; font-weight:600;
+}
+.proj-badge.personal { background:rgba(74,222,128,0.12); color:var(--green); border:1px solid rgba(74,222,128,0.25); }
+.proj-badge.stage { background:rgba(251,191,36,0.12); color:var(--yellow); border:1px solid rgba(251,191,36,0.25); }
+
+.project-card p { font-size:0.82rem; color:var(--text2); line-height:1.6; margin-bottom:12px; }
+.proj-tech { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:10px; }
+.proj-tech span {
+  font-family:var(--mono); font-size:0.65rem;
+  padding:3px 7px; border-radius:4px;
+  background:rgba(167,139,250,0.1); color:var(--accent);
+}
+.proj-status { display:flex; align-items:center; gap:5px; font-size:0.72rem; color:var(--text3); }
+.status-dot { width:7px; height:7px; border-radius:50%; }
+.status-dot.done { background:var(--green); }
+.status-dot.progress { background:var(--yellow); animation:pulseDot 2s infinite; }

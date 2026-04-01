@@ -1,0 +1,29 @@
+:root {
+  --bg-primary: #0f0f1a;
+  --bg-secondary: #141425;
+  --bg-card: #1a1a30;
+  --bg-card-hover: #222244;
+  --accent: #a78bfa;
+  --accent2: #818cf8;
+  --accent3: #6366f1;
+  --green: #4ade80;
+  --yellow: #fbbf24;
+  --red: #f87171;
+  --cyan: #22d3ee;
+  --pink: #f472b6;
+  --text1: #e2e8f0;
+  --text2: #94a3b8;
+  --text3: #64748b;
+  --border: #2a2a4a;
+  --border-glow: rgba(167,139,250,0.35);
+  --shadow: 0 4px 24px rgba(0,0,0,0.4);
+  --glow: 0 0 20px rgba(167,139,250,0.15);
+  --grid-c: rgba(167,139,250,0.05);
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-xl: 20px;
+  --mono: 'JetBrains Mono', monospace;
+  --sans: 'Space Grotesk', sans-serif;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}

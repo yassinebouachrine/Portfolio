@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yassine Bouachrine — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
+</head>
+<body>
+
+  <!-- Grid Background -->
+  <div class="grid-bg"></div>
+
+  <!-- Particles -->
+  <div id="particles"></div>
+
+  <!-- Navigation (Fixed top) -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="bracket">&lt;</span>YB<span class="bracket">/&gt;</span>
+    </div>
+
+    <div class="nav-progress">
+      <div class="nav-progress-bar" id="scrollProgress"></div>
+    </div>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link active" data-index="0">
+        <i class="fas fa-home"></i><span>Accueil</span>
+      </a>
+      <a href="#about" class="nav-link" data-index="1">
+        <i class="fas fa-user"></i><span>À propos</span>
+      </a>
+      <a href="#experience" class="nav-link" data-index="2">
+        <i class="fas fa-briefcase"></i><span>Expérience</span>
+      </a>
+      <a href="#projects" class="nav-link" data-index="3">
+        <i class="fas fa-code"></i><span>Projets</span>
+      </a>
+      <a href="#skills" class="nav-link" data-index="4">
+        <i class="fas fa-cogs"></i><span>Compétences</span>
+      </a>
+      <a href="#contact" class="nav-link" data-index="5">
+        <i class="fas fa-envelope"></i><span>Contact</span>
+      </a>
+    </div>
+
+    <div class="nav-toggle" id="navToggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Section Indicator -->
+  <div class="section-dots" id="sectionDots">
+    <button class="section-dot active" data-index="0" title="Accueil"></button>
+    <button class="section-dot" data-index="1" title="À propos"></button>
+    <button class="section-dot" data-index="2" title="Expérience"></button>
+    <button class="section-dot" data-index="3" title="Projets"></button>
+    <button class="section-dot" data-index="4" title="Compétences"></button>
+    <button class="section-dot" data-index="5" title="Contact"></button>
+  </div>
+
+  <!-- Scroll Arrow Hints -->
+  <div class="scroll-hint scroll-hint-left" id="scrollLeft">
+    <i class="fas fa-chevron-left"></i>
+  </div>
+  <div class="scroll-hint scroll-hint-right" id="scrollRight">
+    <i class="fas fa-chevron-right"></i>
+  </div>
+
+  <!-- ========== HORIZONTAL CONTAINER ========== -->
+  <div class="horizontal-wrapper" id="horizontalWrapper">
+    <div class="horizontal-container" id="horizontalContainer">
+
+      <!-- ===== PANEL 0: HOME ===== -->
+      <section class="panel" id="home">
+        <div class="panel-inner">
+          <div class="bento-grid hero-grid">
+
+            <!-- Main Hero -->
+            <div class="bento-card hero-main">
+              <div class="terminal-bar">
+                <div class="terminal-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <span class="terminal-title">yassine@portfolio:~$</span>
+              </div>
+              <div class="hero-body">
+                <div class="hero-greeting">
+                  <span id="greeting">Bonjour</span>
+                </div>
+                <h1 class="hero-name">
+                  <span class="line1">BOUACHRINE</span>
+                  <span class="line2">Yassine</span>
+                </h1>
+                <div class="hero-typed-wrap">
+                  <span class="prefix">&gt;&gt;&gt; </span>
+                  <span class="typed" id="heroTyped"></span>
+                  <span class="caret">|</span>
+                </div>
+                <div class="hero-buttons">
+                  <button class="btn btn-primary" data-goto="3">
+                    <i class="fas fa-rocket"></i> Voir mes projets
+                  </button>
+                  <button class="btn btn-outline" data-goto="5">
+                    <i class="fas fa-paper-plane"></i> Me contacter
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Profile -->
+            <div class="bento-card hero-profile">
+              <div class="profile-ring-wrap">
+                <div class="profile-ring"></div>
+                <div class="profile-avatar">
+                  <img src="/src/assets/photo.png" alt="Photo de Yassine Bouachrine" />
+                </div>
+              </div>
+              <div class="profile-status">
+                <span class="dot-online"></span>
+                Disponible pour stage / projet
+              </div>
+            </div>
+
+            <!-- Clock -->
+            <div class="bento-card hero-clock">
+              <div class="clock-time" id="clockTime">00:00</div>
+              <div class="clock-date" id="clockDate"></div>
+              <div class="clock-loc"><i class="fas fa-map-marker-alt"></i> Agadir, Maroc</div>
+            </div>
+
+            <!-- Stats -->
+            <div class="bento-card hero-stats">
+              <div class="stat"><span class="stat-num" data-count="5">0</span><span class="stat-lbl">Projets</span></div>
+              <div class="stat"><span class="stat-num" data-count="4">0</span><span class="stat-lbl">Stages</span></div>
+              <div class="stat"><span class="stat-num" data-count="15">0</span><span class="stat-lbl">Technologies</span></div>
+            </div>
+
+            <!-- Quote -->
+            <div class="bento-card hero-quote">
+              <i class="fas fa-quote-left q-icon"></i>
+              <p>"It is through science that we prove, but through intuition that we discover."</p>
+              <span class="q-author">~ Henri Poincaré ~</span>
+            </div>
+
+            <!-- Socials -->
+            <div class="bento-card hero-socials">
+              <a href="https://github.com/yassinebouachrine" target="_blank" class="social-btn"><i class="fab fa-github"></i></a>
+              <a href="https://linkedin.com/in/yassine-bouachrine-68b761230" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="mailto:bouachrinyassin0@gmail.com" class="social-btn"><i class="fas fa-envelope"></i></a>
+              <a href="tel:+212697233708" class="social-btn"><i class="fas fa-phone"></i></a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PANEL 1: ABOUT ===== -->
+      <section class="panel" id="about">
+        <div class="panel-inner">
+          <div class="section-header">
+            <span class="tag">&lt;about&gt;</span>
+            <h2 class="section-title">À Propos de Moi</h2>
+            <span class="tag">&lt;/about&gt;</span>
+          </div>
+
+          <div class="bento-grid about-grid">
+
+            <!-- Bio -->
+            <div class="bento-card about-bio">
+              <h3><i class="fas fa-user-graduate"></i> Qui suis-je ?</h3>
+              <p>
+                Je suis <strong>Yassine Bouachrine</strong>, élève ingénieur en
+                <strong>Science des Données, Big Data et IA</strong> à l'ENSIASD de Taroudant.
+              </p>
+              <p>
+                Passionné par l'IA, le machine learning et la data science, je combine
+                compétences techniques et créativité pour développer des solutions innovantes.
+              </p>
+            </div>
+
+            <!-- Education -->
+            <div class="bento-card about-education">
+              <h3><i class="fas fa-graduation-cap"></i> Formation</h3>
+              <div class="timeline">
+                <div class="tl-item">
+                  <div class="tl-dot active"></div>
+                  <div class="tl-body">
+                    <span class="tl-date">2024 – 2027</span>
+                    <h4>Diplôme d'Ingénieur — Data Science, Big Data & IA</h4>
+                    <p>ENSIASD, Taroudant</p>
+                  </div>
+                </div>
+                <div class="tl-item">
+                  <div class="tl-dot"></div>
+                  <div class="tl-body">
+                    <span class="tl-date">2023 – 2024</span>
+                    <h4>Licence Pro — Informatique Décisionnelle & Statistique</h4>
+                    <p>EST Guelmim, Univ. Ibn Zohr</p>
+                  </div>
+                </div>
+                <div class="tl-item">
+                  <div class="tl-dot"></div>
+                  <div class="tl-body">
+                    <span class="tl-date">2021 – 2023</span>
+                    <h4>DUT en Informatique</h4>
+                    <p>EST Guelmim, Univ. Ibn Zohr</p>
+                  </div>
+                </div>
+                <div class="tl-item">
+                  <div class="tl-dot"></div>
+                  <div class="tl-body">
+                    <span class="tl-date">2020 – 2021</span>
+                    <h4>Baccalauréat Science Physique</h4>
+                    <p>Lycée Sidi Ouagag, Tiznit</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Languages -->
+            <div class="bento-card about-langs">
+              <h3><i class="fas fa-language"></i> Langues</h3>
+              <div class="lang-item">
+                <div class="lang-row"><span>ⵜⴰⵎⴰⵣⵉⵖⵜ Amazigh</span><span class="lang-lvl">Maternelle</span></div>
+                <div class="lang-bar"><div class="lang-fill" data-width="100"></div></div>
+              </div>
+              <div class="lang-item">
+                <div class="lang-row"><span>🇲🇦 Arabe</span><span class="lang-lvl">Courant</span></div>
+                <div class="lang-bar"><div class="lang-fill" data-width="90"></div></div>
+              </div>
+              <div class="lang-item">
+                <div class="lang-row"><span>🇫🇷 Français</span><span class="lang-lvl">Intermédiaire sup.</span></div>
+                <div class="lang-bar"><div class="lang-fill" data-width="75"></div></div>
+              </div>
+              <div class="lang-item">
+                <div class="lang-row"><span>🇬🇧 Anglais</span><span class="lang-lvl">Intermédiaire sup.</span></div>
+                <div class="lang-bar"><div class="lang-fill" data-width="70"></div></div>
+              </div>
+            </div>
+
+            <!-- Contact Info Mini -->
+            <div class="bento-card about-info">
+              <div class="info-row"><i class="fas fa-map-marker-alt"></i><div><small>Localisation</small><span>Aglou, Tiznit, Maroc</span></div></div>
+              <div class="info-row"><i class="fas fa-phone"></i><div><small>Téléphone</small><span>+212 697 233 708</span></div></div>
+              <div class="info-row"><i class="fas fa-envelope"></i><div><small>Email</small><span>bouachrinyassin0@gmail.com</span></div></div>
+              <div class="info-row"><i class="fas fa-university"></i><div><small>École</small><span>ENSIASD Taroudant</span></div></div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PANEL 2: EXPERIENCE ===== -->
+      <section class="panel" id="experience">
+        <div class="panel-inner">
+          <div class="section-header">
+            <span class="tag">&lt;experience&gt;</span>
+            <h2 class="section-title">Expérience Professionnelle</h2>
+            <span class="tag">&lt;/experience&gt;</span>
+          </div>
+
+          <div class="bento-grid exp-grid">
+
+            <div class="bento-card exp-card">
+              <div class="exp-top">
+                <div class="exp-icon"><i class="fas fa-chart-bar"></i></div>
+                <div class="exp-meta"><span class="exp-date">Juil. – Sept. 2025</span><span class="exp-badge">Temps partiel</span></div>
+              </div>
+              <h3>Data Scientist</h3>
+              <h4>Haut Commissariat au Plan (HCP)</h4>
+              <p class="exp-loc"><i class="fas fa-map-marker-alt"></i> Agadir</p>
+              <ul>
+                <li>Analyse de données et Machine Learning</li>
+                <li>Développement de modèles prédictifs</li>
+                <li>Traitement et visualisation de données statistiques</li>
+              </ul>
+              <div class="exp-tags"><span>Python</span><span>ML</span><span>Data Analysis</span></div>
+            </div>
+
+            <div class="bento-card exp-card">
+              <div class="exp-top">
+                <div class="exp-icon"><i class="fas fa-ship"></i></div>
+                <div class="exp-meta"><span class="exp-date">Avr. – Mai 2024</span><span class="exp-badge">Stage</span></div>
+              </div>
+              <h3>Data Scientist</h3>
+              <h4>Marsa Maroc</h4>
+              <p class="exp-loc"><i class="fas fa-map-marker-alt"></i> Agadir</p>
+              <ul>
+                <li>Système automatisé d'analyse et prédiction du trafic portuaire</li>
+                <li>Algorithmes de machine learning avancés</li>
+                <li>Visualisations pour la gestion du trafic</li>
+              </ul>
+              <div class="exp-tags"><span>ML</span><span>Data Viz</span><span>Python</span></div>
+            </div>
+
+            <div class="bento-card exp-card">
+              <div class="exp-top">
+                <div class="exp-icon"><i class="fas fa-cog"></i></div>
+                <div class="exp-meta"><span class="exp-date">Avr. – Mai 2023</span><span class="exp-badge">Stage</span></div>
+              </div>
+              <h3>Développeur ERP Odoo</h3>
+              <h4>LeanSoft</h4>
+              <p class="exp-loc"><i class="fas fa-map-marker-alt"></i> Agadir</p>
+              <ul>
+                <li>Modèle intégré dans l'ERP Odoo</li>
+                <li>Optimisation gestion ventes, achats, factures</li>
+                <li>Automatisation des processus commerciaux</li>
+              </ul>
+              <div class="exp-tags"><span>Python</span><span>Odoo</span><span>ERP</span></div>
+            </div>
+
+            <div class="bento-card exp-card">
+              <div class="exp-top">
+                <div class="exp-icon"><i class="fas fa-desktop"></i></div>
+                <div class="exp-meta"><span class="exp-date">Juil. – Août 2022</span><span class="exp-badge">Stage</span></div>
+              </div>
+              <h3>Développeur Desktop</h3>
+              <h4>DEVSOLTECH</h4>
+              <p class="exp-loc"><i class="fas fa-map-marker-alt"></i> Agadir</p>
+              <ul>
+                <li>Application desktop pour la gestion des charges</li>
+                <li>UI avec VB.NET + intégration Excel</li>
+                <li>Base de données SQL Server</li>
+              </ul>
+              <div class="exp-tags"><span>VB.NET</span><span>SQL Server</span><span>Excel</span></div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PANEL 3: PROJECTS ===== -->
+      <section class="panel" id="projects">
+        <div class="panel-inner">
+          <div class="section-header">
+            <span class="tag">&lt;projects&gt;</span>
+            <h2 class="section-title">Mes Projets</h2>
+            <span class="tag">&lt;/projects&gt;</span>
+          </div>
+
+          <div class="project-filters">
+            <button class="filter-btn active" data-filter="all">Tous</button>
+            <button class="filter-btn" data-filter="personal">Personnel</button>
+            <button class="filter-btn" data-filter="stage">Stage</button>
+          </div>
+
+          <div class="bento-grid projects-grid">
+
+            <div class="bento-card project-card" data-category="personal">
+              <div class="proj-top">
+                <div class="proj-icon"><i class="fas fa-dumbbell"></i></div>
+                <a href="https://github.com/yassinebouachrine" target="_blank"><i class="fab fa-github"></i></a>
+              </div>
+              <h3>FitLife</h3>
+              <span class="proj-badge personal">Personnel</span>
+              <p>Application mobile & metaverse pour le fitness. Accompagnement sport, nutrition et bien-être.</p>
+              <div class="proj-tech"><span>Mobile</span><span>Metaverse</span><span>Fitness</span></div>
+              <div class="proj-status"><span class="status-dot progress"></span>En développement</div>
+            </div>
+
+            <div class="bento-card project-card" data-category="personal">
+              <div class="proj-top">
+                <div class="proj-icon"><i class="fas fa-balance-scale"></i></div>
+                <a href="https://github.com/yassinebouachrine" target="_blank"><i class="fab fa-github"></i></a>
+              </div>
+              <h3>Classification Ethics</h3>
+              <span class="proj-badge personal">Personnel</span>
+              <p>Classification des dilemmes éthiques avec NLP et machine learning.</p>
+              <div class="proj-tech"><span>Python</span><span>NLP</span><span>ML</span></div>
+              <div class="proj-status"><span class="status-dot done"></span>Complété</div>
+            </div>
+
+            <div class="bento-card project-card" data-category="personal">
+              <div class="proj-top">
+                <div class="proj-icon"><i class="fas fa-font"></i></div>
+                <a href="https://github.com/yassinebouachrine" target="_blank"><i class="fab fa-github"></i></a>
+              </div>
+              <h3>ArabicTextLevelDetector</h3>
+              <span class="proj-badge personal">Personnel</span>
+              <p>Détection automatique de la complexité d'un texte arabe via NLP.</p>
+              <div class="proj-tech"><span>Python</span><span>NLP</span><span>Deep Learning</span></div>
+              <div class="proj-status"><span class="status-dot done"></span>Complété</div>
+            </div>
+
+            <div class="bento-card project-card" data-category="stage">
+              <div class="proj-top">
+                <div class="proj-icon"><i class="fas fa-robot"></i></div>
+                <a href="https://github.com/yassinebouachrine" target="_blank"><i class="fab fa-github"></i></a>
+              </div>
+              <h3>HCP Chatbot</h3>
+              <span class="proj-badge stage">Stage</span>
+              <p>Prototype de chatbot pour le Haut Commissariat au Plan d'Agadir.</p>
+              <div class="proj-tech"><span>Python</span><span>NLP</span><span>Chatbot</span></div>
+              <div class="proj-status"><span class="status-dot done"></span>Complété</div>
+            </div>
+
+            <div class="bento-card project-card" data-category="stage">
+              <div class="proj-top">
+                <div class="proj-icon"><i class="fas fa-chart-line"></i></div>
+                <a href="https://github.com/yassinebouachrine" target="_blank"><i class="fab fa-github"></i></a>
+              </div>
+              <h3>Prévision Marsa Maroc</h3>
+              <span class="proj-badge stage">Stage</span>
+              <p>Visualisation du trafic portuaire + modèle de prédiction ML pour le port d'Agadir.</p>
+              <div class="proj-tech"><span>ML</span><span>Data Viz</span><span>Forecasting</span></div>
+              <div class="proj-status"><span class="status-dot done"></span>Complété</div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PANEL 4: SKILLS ===== -->
+      <section class="panel" id="skills">
+        <div class="panel-inner">
+          <div class="section-header">
+            <span class="tag">&lt;skills&gt;</span>
+            <h2 class="section-title">Compétences</h2>
+            <span class="tag">&lt;/skills&gt;</span>
+          </div>
+
+          <div class="bento-grid skills-grid">
+
+            <div class="bento-card skill-card">
+              <div class="sk-head"><i class="fas fa-code"></i><h3>Langages</h3></div>
+              <div class="sk-items">
+                <div class="sk-row"><i class="fab fa-python"></i><span>Python</span><div class="sk-bar"><div class="sk-fill" data-width="95"></div></div></div>
+                <div class="sk-row"><i class="fab fa-java"></i><span>Java</span><div class="sk-bar"><div class="sk-fill" data-width="75"></div></div></div>
+                <div class="sk-row"><i class="fas fa-copyright"></i><span>C / C++</span><div class="sk-bar"><div class="sk-fill" data-width="70"></div></div></div>
+                <div class="sk-row"><i class="fab fa-php"></i><span>PHP</span><div class="sk-bar"><div class="sk-fill" data-width="65"></div></div></div>
+                <div class="sk-row"><i class="fab fa-js-square"></i><span>JavaScript</span><div class="sk-bar"><div class="sk-fill" data-width="70"></div></div></div>
+              </div>
+            </div>
+
+            <div class="bento-card skill-card">
+              <div class="sk-head"><i class="fas fa-brain"></i><h3>Data Science & IA</h3></div>
+              <div class="sk-items">
+                <div class="sk-row"><i class="fas fa-table"></i><span>Pandas / NumPy</span><div class="sk-bar"><div class="sk-fill" data-width="90"></div></div></div>
+                <div class="sk-row"><i class="fas fa-robot"></i><span>Scikit-learn</span><div class="sk-bar"><div class="sk-fill" data-width="85"></div></div></div>
+                <div class="sk-row"><i class="fas fa-network-wired"></i><span>Keras</span><div class="sk-bar"><div class="sk-fill" data-width="75"></div></div></div>
+                <div class="sk-row"><i class="fas fa-chart-area"></i><span>R / ggplot2</span><div class="sk-bar"><div class="sk-fill" data-width="65"></div></div></div>
+                <div class="sk-row"><i class="fas fa-cogs"></i><span>Machine Learning</span><div class="sk-bar"><div class="sk-fill" data-width="85"></div></div></div>
+              </div>
+            </div>
+
+            <div class="bento-card skill-card">
+              <div class="sk-head"><i class="fas fa-chart-pie"></i><h3>Visualisation</h3></div>
+              <div class="sk-items">
+                <div class="sk-row"><i class="fas fa-chart-bar"></i><span>Power BI</span><div class="sk-bar"><div class="sk-fill" data-width="80"></div></div></div>
+                <div class="sk-row"><i class="fas fa-th-large"></i><span>Tableau</span><div class="sk-bar"><div class="sk-fill" data-width="70"></div></div></div>
+                <div class="sk-row"><i class="fas fa-chart-line"></i><span>Matplotlib</span><div class="sk-bar"><div class="sk-fill" data-width="85"></div></div></div>
+              </div>
+            </div>
+
+            <div class="bento-card skill-card">
+              <div class="sk-head"><i class="fas fa-database"></i><h3>BDD & Big Data</h3></div>
+              <div class="sk-items">
+                <div class="sk-row"><i class="fas fa-database"></i><span>MySQL / PostgreSQL</span><div class="sk-bar"><div class="sk-fill" data-width="80"></div></div></div>
+                <div class="sk-row"><i class="fas fa-leaf"></i><span>MongoDB</span><div class="sk-bar"><div class="sk-fill" data-width="65"></div></div></div>
+                <div class="sk-row"><i class="fas fa-warehouse"></i><span>Data Warehouse</span><div class="sk-bar"><div class="sk-fill" data-width="70"></div></div></div>
+              </div>
+            </div>
+
+            <div class="bento-card skill-card skill-card-wide">
+              <div class="sk-head"><i class="fas fa-tools"></i><h3>Frameworks & Outils</h3></div>
+              <div class="sk-tags">
+                <span><i class="fab fa-python"></i> Django</span>
+                <span><i class="fab fa-python"></i> Flask</span>
+                <span><i class="fas fa-stream"></i> Streamlit</span>
+                <span><i class="fab fa-linux"></i> Linux</span>
+                <span><i class="fab fa-git-alt"></i> Git</span>
+                <span><i class="fab fa-docker"></i> Docker</span>
+                <span><i class="fas fa-project-diagram"></i> UML</span>
+                <span><i class="fas fa-sitemap"></i> Merise</span>
+                <span><i class="fas fa-cog"></i> Odoo</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PANEL 5: CONTACT ===== -->
+      <section class="panel" id="contact">
+        <div class="panel-inner">
+          <div class="section-header">
+            <span class="tag">&lt;contact&gt;</span>
+            <h2 class="section-title">Me Contacter</h2>
+            <span class="tag">&lt;/contact&gt;</span>
+          </div>
+
+          <div class="bento-grid contact-grid">
+
+            <!-- Form -->
+            <div class="bento-card contact-form-card">
+              <div class="terminal-bar">
+                <div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+                <span class="terminal-title">contact@yassine:~$ send_message</span>
+              </div>
+              <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                  <label><span class="prompt">$ </span>nom<span class="req">*</span></label>
+                  <input type="text" name="name" placeholder="Votre nom complet" required />
+                </div>
+                <div class="form-group">
+                  <label><span class="prompt">$ </span>email<span class="req">*</span></label>
+                  <input type="email" name="email" placeholder="votre@email.com" required />
+                </div>
+                <div class="form-group">
+                  <label><span class="prompt">$ </span>sujet</label>
+                  <input type="text" name="subject" placeholder="Sujet du message" />
+                </div>
+                <div class="form-group">
+                  <label><span class="prompt">$ </span>message<span class="req">*</span></label>
+                  <textarea name="message" rows="4" placeholder="Votre message..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+                  <i class="fas fa-paper-plane"></i>
+                  <span class="btn-text">Envoyer</span>
+                  <span class="btn-loading" style="display:none"><i class="fas fa-spinner fa-spin"></i> Envoi...</span>
+                </button>
+              </form>
+              <div id="formMsg" class="form-msg" style="display:none"></div>
+            </div>
+
+            <!-- Info -->
+            <div class="bento-card contact-info-card">
+              <h3><i class="fas fa-address-card"></i> Informations</h3>
+              <div class="ci-list">
+                <div class="ci-item"><div class="ci-icon"><i class="fas fa-envelope"></i></div><div><small>Email</small><a href="mailto:bouachrinyassin0@gmail.com">bouachrinyassin0@gmail.com</a></div></div>
+                <div class="ci-item"><div class="ci-icon"><i class="fas fa-phone"></i></div><div><small>Téléphone</small><a href="tel:+212697233708">+212 697 233 708</a></div></div>
+                <div class="ci-item"><div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div><div><small>Adresse</small><span>Aglou, Tiznit, Maroc</span></div></div>
+              </div>
+              <div class="ci-social">
+                <h4>Retrouvez-moi</h4>
+                <div class="ci-social-links">
+                  <a href="https://github.com/yassinebouachrine" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                  <a href="https://linkedin.com/in/yassine-bouachrine-68b761230" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Map -->
+            <div class="bento-card contact-map">
+              <div class="map-inner">
+                <i class="fas fa-globe-africa"></i>
+                <h3>Basé au Maroc 🇲🇦</h3>
+                <p>Ouvert aux opportunités de stage et collaboration.</p>
+                <div class="avail-badge"><span class="dot-online"></span>Disponible maintenant</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Footer inside last panel -->
+          <footer class="footer">
+            <div class="footer-logo"><span class="bracket">&lt;</span>YB<span class="bracket">/&gt;</span></div>
+            <p>Conçu & développé par Yassine Bouachrine</p>
+            <small>© 2026 — Tous droits réservés</small>
+          </footer>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

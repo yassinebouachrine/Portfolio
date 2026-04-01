@@ -1,0 +1,50 @@
+.navbar {
+  position: fixed; top:0; left:0; right:0; height:65px;
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 0 30px;
+  background: rgba(15,15,26,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+}
+
+.nav-logo {
+  font-family: var(--mono);
+  font-size: 1.4rem; font-weight:700; color:var(--accent);
+}
+
+.nav-progress {
+  position:absolute; bottom:0; left:0; right:0; height:2px;
+  background: rgba(167,139,250,0.1);
+}
+.nav-progress-bar {
+  height:100%; width:0;
+  background: linear-gradient(90deg, var(--accent), var(--cyan));
+  transition: width 0.8s var(--ease);
+}
+
+.nav-links {
+  display:flex; gap:6px;
+}
+.nav-link {
+  display:flex; align-items:center; gap:6px;
+  padding:7px 14px; border-radius:var(--r-sm);
+  font-size:0.82rem; font-weight:500;
+  color:var(--text2); transition: all 0.3s;
+}
+.nav-link:hover, .nav-link.active {
+  color:var(--accent); background:rgba(167,139,250,0.1);
+}
+.nav-link i { font-size:0.85rem; }
+
+.nav-toggle {
+  display:none; flex-direction:column; gap:5px;
+  cursor:pointer; z-index:1001;
+}
+.nav-toggle span {
+  width:24px; height:2px; background:var(--text1);
+  transition: all 0.3s; border-radius:2px;
+}
+.nav-toggle.active span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
+.nav-toggle.active span:nth-child(2) { opacity:0; }
+.nav-toggle.active span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
