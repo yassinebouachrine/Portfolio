@@ -1,10 +1,9 @@
 import sqlite3
-
-DATABASE = 'portfolio.db'
+from config import Config
 
 
 def get_db():
-    db = sqlite3.connect(DATABASE)
+    db = sqlite3.connect(Config.DATABASE)
     db.row_factory = sqlite3.Row
     return db
 

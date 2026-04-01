@@ -7,8 +7,10 @@ import { initAnimations } from './js/animations.js'
 import { initContactForm } from './js/contactForm.js'
 import { initProjectFilters } from './js/projectFilters.js'
 import { initNavbar } from './js/navbar.js'
+import { initTheme } from './js/theme.js'
 
 document.addEventListener('DOMContentLoaded', () => {
+  initTheme()
   initHorizontalScroll()
   initClock()
   initTypedEffect()

@@ -1,32 +1,13 @@
 export function initTypedEffect() {
   const el = document.getElementById('heroTyped')
   if (!el) return
-
-  const texts = [
-    'Élève Ingénieur en Data Science & IA',
-    'Machine Learning Enthusiast',
-    'Big Data & Analytics',
-    'Full Stack Developer',
-    'NLP & Deep Learning'
-  ]
-
-  let ti = 0, ci = 0, deleting = false, speed = 80
-
+  const texts = ['Élève Ingénieur en Data Science & IA','Machine Learning & Deep Learning Enthusiast','Big Data & Analytics','Computer Vision','Passionné par l\'IA']
+  let ti=0,ci=0,del=false,sp=80
   function type() {
-    const txt = texts[ti]
-    if (!deleting) {
-      el.textContent = txt.substring(0, ci + 1)
-      ci++
-      if (ci === txt.length) { deleting = true; speed = 2000 }
-      else speed = 50 + Math.random() * 80
-    } else {
-      el.textContent = txt.substring(0, ci - 1)
-      ci--
-      if (ci === 0) { deleting = false; ti = (ti + 1) % texts.length; speed = 300 }
-      else speed = 30
-    }
-    setTimeout(type, speed)
+    const t=texts[ti]
+    if(!del){el.textContent=t.substring(0,ci+1);ci++;if(ci===t.length){del=true;sp=2000}else sp=50+Math.random()*80}
+    else{el.textContent=t.substring(0,ci-1);ci--;if(ci===0){del=false;ti=(ti+1)%texts.length;sp=300}else sp=30}
+    setTimeout(type,sp)
   }
-
-  setTimeout(type, 600)
+  setTimeout(type,600)
 }
