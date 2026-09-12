@@ -112,9 +112,10 @@ export function initHorizontalScroll() {
 
   // ── Check if panel needs internal scroll ──
   function panelCanScrollVertically(panel, direction) {
+    const maxScrollTop = Math.max(0, panel.scrollHeight - panel.clientHeight)
     if (direction > 0) {
       // Scrolling down — can we scroll down more?
-      return panel.scrollTop < (panel.scrollHeight - panel.clientHeight - 5)
+      return panel.scrollTop < maxScrollTop - 2
     } else {
       // Scrolling up — can we scroll up more?
       return panel.scrollTop > 5
@@ -131,20 +132,20 @@ export function initHorizontalScroll() {
     const currentPanel = panels[currentIndex]
     const deltaY = e.deltaY
     const deltaX = e.deltaX
-
-    // If using horizontal scroll (trackpad), use deltaX
-    const primaryDelta = Math.abs(deltaX) > Math.abs(deltaY) ? deltaX : deltaY
+    const isHorizontalScroll = Math.abs(deltaX) > Math.abs(deltaY)
+    const primaryDelta = isHorizontalScroll ? deltaX : deltaY
 
     // Check if current panel has scrollable content
     const panelHasScroll = currentPanel.scrollHeight > currentPanel.clientHeight + 10
 
-    if (panelHasScroll) {
+    if (panelHasScroll && !isHorizontalScroll && deltaY !== 0) {
       // Panel has internal scroll content
-      const canScroll = panelCanScrollVertically(currentPanel, primaryDelta)
+      const canScroll = panelCanScrollVertically(currentPanel, deltaY)
 
       if (canScroll) {
-        // Let the panel scroll internally — apply scroll manually
-        currentPanel.scrollTop += deltaY
+        // Clamp the internal scroll so a large wheel delta never overshoots the panel.
+        const maxScrollTop = Math.max(0, currentPanel.scrollHeight - currentPanel.clientHeight)
+        currentPanel.scrollTop = Math.max(0, Math.min(maxScrollTop, currentPanel.scrollTop + deltaY))
         accumulatedDelta = 0
         return
       }
@@ -281,5 +282,5 @@ export function initHorizontalScroll() {
   goToPanel(0, false)
 
   // Log for debug
-  console.log(`✅ Horizontal scroll initialized — ${panels.length} panels`)
+  console.log(`Horizontal scroll initialized — ${panels.length} panels`)
 }

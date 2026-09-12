@@ -34,6 +34,8 @@ ul { list-style: none; }
   transition: background-image 0.4s;
 }
 
+[data-theme="light"] .grid-bg { opacity: 0.35; }
+
 /* ── Particles ── */
 #particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
 .particle {
@@ -101,6 +103,8 @@ ul { list-style: none; }
 .panel-center {
   justify-content: center;
 }
+
+.hero-panel-inner { max-width: 1180px; padding-top: 70px; padding-bottom: 18px; }
 
 /* ── Section Header ── */
 .section-header { text-align: center; margin-bottom: 30px; flex-shrink: 0; }
@@ -233,9 +237,10 @@ ul { list-style: none; }
   flex-shrink: 0;
 }
 .footer-logo {
-  font-family: var(--mono); font-size: 1.2rem;
-  font-weight: 700; color: var(--accent); margin-bottom: 6px;
+  height: 54px; display: flex; justify-content: center; align-items: center;
+  margin-bottom: 6px;
 }
+.footer-logo img { width: 58px; height: 58px; object-fit: contain; mix-blend-mode: difference; }
 .bracket { color: var(--accent2); }
 .footer p { color: var(--text2); font-size: 0.8rem; }
 .footer small { color: var(--text3); font-size: 0.7rem; }

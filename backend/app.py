@@ -50,6 +50,7 @@ def contact():
 
         # ── Send Email ──
         email_sent = False
+        email_error = None
         if Config.is_mail_configured():
             try:
                 # Notification à moi
@@ -59,14 +60,14 @@ def contact():
 ║       NOUVEAU MESSAGE — PORTFOLIO        ║
 ╚══════════════════════════════════════════╝
 
-👤 Nom:     {name}
-📧 Email:   {email}
-📋 Sujet:   {subject or '(aucun)'}
-📅 Date:    {datetime.now().strftime('%d/%m/%Y à %H:%M')}
+Nom:        {name}
+Email:      {email}
+Sujet:      {subject or '(aucun)'}
+Date:       {datetime.now().strftime('%d/%m/%Y à %H:%M')}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-💬 Message:
+Message:
 
 {message}
 
@@ -92,7 +93,7 @@ Yassine Bouachrine
 Élève Ingénieur en Data Science, Big Data & IA
 ENSIASD — Taroudant
 
-📧 {Config.CONTACT_EMAIL}
+{Config.CONTACT_EMAIL}
 🔗 github.com/yassinebouachrine
 """
                 confirm_msg = Message(
@@ -105,13 +106,16 @@ ENSIASD — Taroudant
                 email_sent = True
 
             except Exception as email_err:
-                print(f"⚠️ Email error: {email_err}")
+                print(f"Email error: {email_err}")
+                email_error = str(email_err)
 
-        response_message = 'Message envoyé avec succès !'
-        if email_sent:
-            response_message += ' Vous recevrez une confirmation par email.'
-        else:
-            response_message += ' 📝'
+        if email_error:
+            return jsonify({
+                'success': False,
+                'message': 'Votre message a été enregistré, mais l\'envoi par email a échoué. Vérifiez la configuration Gmail.'
+            }), 502
+
+        response_message = 'Message envoyé avec succès. Vous recevrez une confirmation par email.'
 
         return jsonify({
             'success': True,
@@ -119,7 +123,7 @@ ENSIASD — Taroudant
         })
 
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f"Error: {e}")
         return jsonify({
             'success': False,
             'message': 'Erreur serveur. Veuillez réessayer.'

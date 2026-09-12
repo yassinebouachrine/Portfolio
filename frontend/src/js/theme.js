@@ -4,7 +4,7 @@ export function initTheme() {
   const html = document.documentElement
 
   // Load saved preference
-  const saved = localStorage.getItem('theme') || 'dark'
+  const saved = localStorage.getItem('theme') || 'light'
   html.setAttribute('data-theme', saved)
   updateIcon(saved)
 

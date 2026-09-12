@@ -8,8 +8,11 @@ import { initContactForm } from './js/contactForm.js'
 import { initProjectFilters } from './js/projectFilters.js'
 import { initNavbar } from './js/navbar.js'
 import { initTheme } from './js/theme.js'
+import { initLanguage } from './js/language.js'
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Language FIRST so translations are ready
+  initLanguage()
   initTheme()
   initHorizontalScroll()
   initClock()

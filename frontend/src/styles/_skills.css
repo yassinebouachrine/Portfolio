@@ -8,7 +8,7 @@
 .sk-row { display:grid; grid-template-columns:24px 1fr 1fr; align-items:center; gap:6px; }
 .sk-row i { color:var(--accent2); font-size:0.9rem; }
 .sk-row span { font-size:0.8rem; color:var(--text2); }
-.sk-bar { height:5px; background:rgba(167,139,250,0.1); border-radius:3px; overflow:hidden; }
+.sk-bar { height:5px; background:color-mix(in srgb, var(--border) 72%, transparent); border-radius:3px; overflow:hidden; }
 .sk-fill {
   height:100%; width:0;
   background:linear-gradient(90deg,var(--accent),var(--cyan));
