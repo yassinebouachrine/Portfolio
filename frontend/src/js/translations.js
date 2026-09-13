@@ -135,6 +135,10 @@ export const translations = {
     fr: 'Détection automatique de la complexité d\'un texte arabe via NLP.',
     en: 'Automatic detection of Arabic text complexity using NLP.'
   },
+  proj_robust_desc: {
+    fr: 'Étude sur la robustesse adversariale des Swin Transformers pour la détection de spoofing facial.',
+    en: 'Study on the adversarial robustness of Swin Transformers for facial spoofing detection.'
+  },
   proj_hcp_desc: {
     fr: 'Prototype de chatbot pour le Haut Commissariat au Plan d\'Agadir.',
     en: 'Chatbot prototype for the High Commission for Planning in Agadir.'
@@ -157,6 +161,7 @@ export const translations = {
   sk_datascience: { fr: 'Data Science & IA', en: 'Data Science & AI' },
   sk_visualization: { fr: 'Visualisation', en: 'Visualization' },
   sk_databases: { fr: 'BDD & Big Data', en: 'DB & Big Data' },
+  sk_deployment: { fr: 'Déploiement & Production', en: 'Deployment & Production' },
   sk_frameworks: { fr: 'Frameworks & Outils', en: 'Frameworks & Tools' },
 
   // ── CONTACT ──

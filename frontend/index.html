@@ -17,17 +17,17 @@
 
   <!-- ══ NAVBAR ══ -->
   <nav class="navbar" id="navbar">
-    <div class="nav-logo">
+    <a href="#/accueil" class="nav-logo" aria-label="Accueil">
       <img src="/src/assets/logo.png" alt="Yassine Bouachrine" />
-    </div>
+    </a>
     <div class="nav-center">
       <div class="nav-links" id="navLinks">
-        <a href="#home" class="nav-link active" data-index="0"><i class="fas fa-home"></i><span data-i18n="nav_home">Accueil</span></a>
-        <a href="#about" class="nav-link" data-index="1"><i class="fas fa-user"></i><span data-i18n="nav_about">À propos</span></a>
-        <a href="#experience" class="nav-link" data-index="2"><i class="fas fa-briefcase"></i><span data-i18n="nav_experience">Expérience</span></a>
-        <a href="#projects" class="nav-link" data-index="3"><i class="fas fa-code"></i><span data-i18n="nav_projects">Projets</span></a>
-        <a href="#skills" class="nav-link" data-index="4"><i class="fas fa-cogs"></i><span data-i18n="nav_skills">Compétences</span></a>
-        <a href="#contact" class="nav-link" data-index="5"><i class="fas fa-envelope"></i><span data-i18n="nav_contact">Contact</span></a>
+        <a href="#/accueil" class="nav-link active" data-index="0" data-route="accueil"><i class="fas fa-home"></i><span data-i18n="nav_home">Accueil</span></a>
+        <a href="#/about" class="nav-link" data-index="1" data-route="about"><i class="fas fa-user"></i><span data-i18n="nav_about">À propos</span></a>
+        <a href="#/experience" class="nav-link" data-index="2" data-route="experience"><i class="fas fa-briefcase"></i><span data-i18n="nav_experience">Expérience</span></a>
+        <a href="#/projects" class="nav-link" data-index="3" data-route="projects"><i class="fas fa-code"></i><span data-i18n="nav_projects">Projets</span></a>
+        <a href="#/skills" class="nav-link" data-index="4" data-route="skills"><i class="fas fa-cogs"></i><span data-i18n="nav_skills">Compétences</span></a>
+        <a href="#/contact" class="nav-link" data-index="5" data-route="contact"><i class="fas fa-envelope"></i><span data-i18n="nav_contact">Contact</span></a>
       </div>
     </div>
     <div class="nav-right">
@@ -49,12 +49,12 @@
 
   <!-- ══ SECTION DOTS ══ -->
   <div class="section-dots" id="sectionDots">
-    <button class="section-dot active" data-index="0" title="Accueil"></button>
-    <button class="section-dot" data-index="1" title="À propos"></button>
-    <button class="section-dot" data-index="2" title="Expérience"></button>
-    <button class="section-dot" data-index="3" title="Projets"></button>
-    <button class="section-dot" data-index="4" title="Compétences"></button>
-    <button class="section-dot" data-index="5" title="Contact"></button>
+    <button class="section-dot active" data-index="0" data-route="accueil" title="Accueil"></button>
+    <button class="section-dot" data-index="1" data-route="about" title="À propos"></button>
+    <button class="section-dot" data-index="2" data-route="experience" title="Expérience"></button>
+    <button class="section-dot" data-index="3" data-route="projects" title="Projets"></button>
+    <button class="section-dot" data-index="4" data-route="skills" title="Compétences"></button>
+    <button class="section-dot" data-index="5" data-route="contact" title="Contact"></button>
   </div>
 
   <!-- ══ SCROLL ARROWS ══ -->
@@ -87,7 +87,7 @@
             </div>
             <div class="hero-side-note"><span>Je crée des solutions</span><strong>data-driven.</strong></div>
             <div class="hero-review"><div class="review-stars">★★★★★</div><strong>Data &amp; AI</strong><span>15+ technologies maîtrisées</span></div>
-            <div class="hero-experience"><strong>04</strong><span>années<br />d'expérience</span></div>
+            <div class="hero-experience"><strong>Junior</strong><span>Data & AI</span></div>
             <div class="hero-socials">
               <a href="https://github.com/yassinebouachrine" target="_blank" class="social-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
               <a href="https://linkedin.com/in/yassine-bouachrine-68b761230" target="_blank" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -128,7 +128,7 @@
               <div class="lang-item"><div class="lang-row"><span>🇬🇧 Anglais</span><span class="lang-lvl" data-i18n="lang_intermediate">Intermédiaire</span></div><div class="lang-bar"><div class="lang-fill" data-width="70"></div></div></div>
             </div>
             <div class="bento-card about-info">
-              <div class="info-row"><i class="fas fa-map-marker-alt"></i><div><small data-i18n="about_location_label">Localisation</small><span>Aglou, Tiznit, Maroc</span></div></div>
+              <div class="info-row"><i class="fas fa-map-marker-alt"></i><div><small data-i18n="about_location_label">Localisation</small><span>Agadir, Souss-Massa, Maroc</span></div></div>
               <div class="info-row"><i class="fas fa-phone"></i><div><small data-i18n="about_phone_label">Téléphone</small><span>+212 697 233 708</span></div></div>
               <div class="info-row"><i class="fas fa-envelope"></i><div><small data-i18n="about_email_label">Email</small><span>bouachrinyassin0@gmail.com</span></div></div>
               <div class="info-row"><i class="fas fa-university"></i><div><small data-i18n="about_school_label">École</small><span>ENSIASD Taroudant</span></div></div>
@@ -210,6 +210,13 @@
               <div class="proj-status"><span class="status-dot done"></span><span data-i18n="proj_status_done">Complété</span></div>
             </div>
             <div class="bento-card project-card" data-category="personal">
+              <div class="proj-top"><div class="proj-icon"><i class="fas fa-shield-alt"></i></div><a href="https://github.com/yassinebouachrine" target="_blank"><i class="fab fa-github"></i></a></div>
+              <h3>Adversarial Swin FAS</h3><span class="proj-badge personal" data-i18n="proj_badge_personal">Personnel</span>
+              <p data-i18n="proj_robust_desc">Étude sur la robustesse adversariale des Swin Transformers pour la détection de spoofing facial.</p>
+              <div class="proj-tech"><span>PyTorch</span><span>Swin</span><span>FGSM</span><span>PGD</span></div>
+              <div class="proj-status"><span class="status-dot done"></span><span data-i18n="proj_status_done">Complété</span></div>
+            </div>
+            <div class="bento-card project-card" data-category="personal">
               <div class="proj-top"><div class="proj-icon"><i class="fas fa-font"></i></div><a href="https://github.com/yassinebouachrine" target="_blank"><i class="fab fa-github"></i></a></div>
               <h3>ArabicTextLevelDetector</h3><span class="proj-badge personal" data-i18n="proj_badge_personal">Personnel</span>
               <p data-i18n="proj_arabic_desc">Détection automatique de la complexité d'un texte arabe via NLP.</p>
@@ -287,6 +294,16 @@
                 <div class="sk-row"><i class="fas fa-leaf"></i><span>MongoDB</span><div class="sk-bar"><div class="sk-fill" data-width="65"></div></div></div>
                 <div class="sk-row"><i class="fas fa-warehouse"></i><span>Hadoop (HDFS / MapReduce)</span><div class="sk-bar"><div class="sk-fill" data-width="78"></div></div></div>
                 <div class="sk-row"><i class="fas fa-magnifying-glass-chart"></i><span>Elasticsearch</span><div class="sk-bar"><div class="sk-fill" data-width="74"></div></div></div>
+                <div class="sk-row"><i class="fas fa-stream"></i><span>Kafka</span><div class="sk-bar"><div class="sk-fill" data-width="72"></div></div></div>
+              </div>
+            </div>
+            <div class="bento-card skill-card">
+              <div class="sk-head"><i class="fas fa-rocket"></i><h3 data-i18n="sk_deployment">Déploiement & Production</h3></div>
+              <div class="sk-items">
+                <div class="sk-row"><i class="fab fa-docker"></i><span>Docker</span><div class="sk-bar"><div class="sk-fill" data-width="86"></div></div></div>
+                <div class="sk-row"><i class="fas fa-cloud"></i><span>AWS / Cloud Deploy</span><div class="sk-bar"><div class="sk-fill" data-width="80"></div></div></div>
+                <div class="sk-row"><i class="fas fa-server"></i><span>CI/CD</span><div class="sk-bar"><div class="sk-fill" data-width="76"></div></div></div>
+                <div class="sk-row"><i class="fas fa-shield-alt"></i><span>Monitoring / Logs</span><div class="sk-bar"><div class="sk-fill" data-width="74"></div></div></div>
               </div>
             </div>
             <div class="bento-card skill-card skill-card-wide">
@@ -300,6 +317,7 @@
                 <span><i class="fas fa-wind"></i> Airflow</span>
                 <span><i class="fas fa-bolt"></i> Apache Spark</span>
                 <span><i class="fas fa-cloud"></i> AWS</span>
+                <span><i class="fas fa-rocket"></i> Deployment</span>
               </div>
             </div>
           </div>
@@ -352,7 +370,7 @@
               <div class="ci-list">
                 <div class="ci-item"><div class="ci-icon"><i class="fas fa-envelope"></i></div><div><small data-i18n="about_email_label">Email</small><a href="mailto:bouachrinyassin0@gmail.com">bouachrinyassin0@gmail.com</a></div></div>
                 <div class="ci-item"><div class="ci-icon"><i class="fas fa-phone"></i></div><div><small data-i18n="about_phone_label">Téléphone</small><a href="tel:+212697233708">+212 697 233 708</a></div></div>
-                <div class="ci-item"><div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div><div><small data-i18n="contact_address_label">Adresse</small><span>Aglou, Tiznit, Maroc</span></div></div>
+                <div class="ci-item"><div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div><div><small data-i18n="contact_address_label">Adresse</small><span>Agadir, Souss-Massa, Maroc</span></div></div>
               </div>
               <div class="ci-social">
                 <h4 data-i18n="contact_find_me">Retrouvez-moi</h4>

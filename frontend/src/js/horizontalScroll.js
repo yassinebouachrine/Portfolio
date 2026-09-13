@@ -10,6 +10,28 @@ export function initHorizontalScroll() {
 
   if (!wrapper || !container || panels.length === 0) return
 
+  const routeMap = {
+    accueil: 0,
+    about: 1,
+    experience: 2,
+    projects: 3,
+    skills: 4,
+    contact: 5
+  }
+
+  function hashToIndex() {
+    const hash = (window.location.hash || '#/accueil').replace(/^#\/?/, '').trim().toLowerCase()
+    return routeMap[hash] ?? 0
+  }
+
+  function updateHashFromIndex(index) {
+    const route = Object.entries(routeMap).find(([, value]) => value === index)?.[0] ?? 'accueil'
+    const nextHash = `#/` + route
+    if (window.location.hash !== nextHash) {
+      window.history.replaceState(null, '', nextHash)
+    }
+  }
+
   let currentIndex = 0
   let isTransitioning = false
   let touchStartX = 0
@@ -17,9 +39,9 @@ export function initHorizontalScroll() {
   let accumulatedDelta = 0
   let deltaResetTimer = null
 
-  const SCROLL_THRESHOLD = 80
-  const TRANSITION_DURATION = 900
-  const DELTA_RESET_DELAY = 200
+  const SCROLL_THRESHOLD = 55
+  const TRANSITION_DURATION = 600
+  const DELTA_RESET_DELAY = 150
 
   // ── Set panel dimensions ──
   function setupLayout() {
@@ -76,10 +98,10 @@ export function initHorizontalScroll() {
 
     if (smooth) {
       isTransitioning = true
-      container.style.transition = `transform ${TRANSITION_DURATION}ms cubic-bezier(0.65, 0, 0.35, 1)`
+      container.style.transition = `transform ${TRANSITION_DURATION}ms cubic-bezier(0.22, 1, 0.36, 1)`
       setTimeout(() => {
         isTransitioning = false
-      }, TRANSITION_DURATION)
+      }, TRANSITION_DURATION + 40)
     } else {
       container.style.transition = 'none'
     }
@@ -105,6 +127,8 @@ export function initHorizontalScroll() {
     if (smooth) {
       panels[index].scrollTop = 0
     }
+
+    updateHashFromIndex(index)
 
     // Dispatch event for animations
     window.dispatchEvent(new CustomEvent('panelChanged', { detail: { index } }))
@@ -241,7 +265,11 @@ export function initHorizontalScroll() {
   // ── Dot navigation ──
   dots.forEach(dot => {
     dot.addEventListener('click', () => {
-      goToPanel(parseInt(dot.dataset.index))
+      const nextIndex = parseInt(dot.dataset.index)
+      goToPanel(nextIndex)
+      if (dot.dataset.route) {
+        window.history.pushState(null, '', '#/' + dot.dataset.route)
+      }
     })
   })
 
@@ -249,7 +277,11 @@ export function initHorizontalScroll() {
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault()
-      goToPanel(parseInt(link.dataset.index))
+      const nextIndex = parseInt(link.dataset.index)
+      goToPanel(nextIndex)
+      if (link.dataset.route) {
+        window.history.pushState(null, '', '#/' + link.dataset.route)
+      }
       // Close mobile nav
       document.getElementById('navLinks')?.classList.remove('open')
       document.getElementById('navToggle')?.classList.remove('active')
@@ -278,8 +310,16 @@ export function initHorizontalScroll() {
     }
   }, { passive: false })
 
+  window.addEventListener('hashchange', () => {
+    const routeIndex = hashToIndex()
+    if (routeIndex !== currentIndex) {
+      goToPanel(routeIndex)
+    }
+  })
+
   // ── Initialize ──
-  goToPanel(0, false)
+  const initialIndex = hashToIndex()
+  goToPanel(initialIndex, false)
 
   // Log for debug
   console.log(`Horizontal scroll initialized — ${panels.length} panels`)
