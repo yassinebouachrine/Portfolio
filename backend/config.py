@@ -1,8 +1,10 @@
 import os
 from dotenv import load_dotenv
 
-# Charger le fichier .env
-load_dotenv()
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Charger le fichier .env du dossier backend, quel que soit le répertoire courant.
+load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 
 class Config:
@@ -33,7 +35,7 @@ class Config:
     CONTACT_EMAIL = os.getenv('CONTACT_EMAIL', 'bouachrinyassin0@gmail.com')
 
     # Database
-    DATABASE = os.getenv('DATABASE_PATH', os.path.join(os.getcwd(), 'portfolio.db'))
+    DATABASE = os.getenv('DATABASE_PATH', os.path.join(BASE_DIR, 'portfolio.db'))
 
     @staticmethod
     def is_mail_configured():
