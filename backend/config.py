@@ -12,10 +12,13 @@ class Config:
     SECRET_KEY = os.getenv('FLASK_SECRET_KEY', 'dev-fallback-key-change-me')
 
     # CORS
-    CORS_ORIGINS = [
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-    ]
+    raw_origins = os.getenv('CORS_ORIGINS', 'http://localhost:5173,http://127.0.0.1:5173')
+    CORS_ORIGINS = [origin.strip() for origin in raw_origins.split(',') if origin.strip()]
+
+    # Optional explicit frontend URL for production
+    FRONTEND_URL = os.getenv('FRONTEND_URL')
+    if FRONTEND_URL:
+        CORS_ORIGINS.append(FRONTEND_URL)
 
     # Email
     MAIL_SERVER = 'smtp.gmail.com'
@@ -30,7 +33,7 @@ class Config:
     CONTACT_EMAIL = os.getenv('CONTACT_EMAIL', 'bouachrinyassin0@gmail.com')
 
     # Database
-    DATABASE = os.getenv('DATABASE_PATH', 'portfolio.db')
+    DATABASE = os.getenv('DATABASE_PATH', os.path.join(os.getcwd(), 'portfolio.db'))
 
     @staticmethod
     def is_mail_configured():
